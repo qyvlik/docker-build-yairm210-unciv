@@ -24,19 +24,13 @@ jobs:
 
       - name: Git clone
         id: git_clone
-        run: |
-          git clone -b "4.4.3" https://github.com/yairm210/Unciv.git
-          pwd
-          ls -lah
-
-#      -
-#        name: Build and push
-#        id: docker_build
-#        uses: docker/build-push-action@v2
-#        with:
-#          push: true
-#          tags: qyvlik/formula:latest
-#          build-args: |
-#            BUILD_APP_GIT_TAG=master
-#            BUILD_APP_GIT_HASH=${{ github.sha }}
-#            BUILD_APP_BUILDER=${{ github.actor }}
+        run: | 
+          git clone -b "4.4.3" --depth 1 https://github.com/yairm210/Unciv.git
+          cd Unciv
+      -
+        name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: qyvlik/yairm210-unciv:4.4.3
