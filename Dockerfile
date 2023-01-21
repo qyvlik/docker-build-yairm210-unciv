@@ -1,5 +1,5 @@
 
-FROM tmp-yairm210-unciv
+FROM qyvlik/yairm210-unciv:4.4.3
 
 USER root
 
