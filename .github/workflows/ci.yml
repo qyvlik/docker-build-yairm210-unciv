@@ -24,7 +24,7 @@ jobs:
 
       - name: Git clone
         id: git_clone
-        run: git clone -b "4.5.8" --depth 1 https://github.com/yairm210/Unciv.git
+        run: git clone -b "4.5.9" --depth 1 https://github.com/yairm210/Unciv.git
 
       -
         name: Build and push
@@ -33,7 +33,7 @@ jobs:
         with:
           context: ./Unciv
           push: true
-          tags: qyvlik/yairm210-unciv:4.5.8
+          tags: qyvlik/yairm210-unciv:4.5.9
 
       -
         name: Build chinese support and push
@@ -41,4 +41,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: qyvlik/yairm210-unciv:4.5.8-chinese
+          tags: qyvlik/yairm210-unciv:4.5.9-chinese
