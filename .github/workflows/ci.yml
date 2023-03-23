@@ -24,7 +24,7 @@ jobs:
 
       - name: Git clone
         id: git_clone
-        run: git clone -b "4.5.11" --depth 1 https://github.com/yairm210/Unciv.git
+        run: git clone -b "4.5.11-patch1" --depth 1 https://github.com/yairm210/Unciv.git
 
       -
         name: Build and push
