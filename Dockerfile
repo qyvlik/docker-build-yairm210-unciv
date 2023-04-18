@@ -1,4 +1,4 @@
-FROM accetto/ubuntu-vnc-xfce-opengl-g3
+FROM accetto/ubuntu-vnc-xfce-g3
 
 USER root
 
