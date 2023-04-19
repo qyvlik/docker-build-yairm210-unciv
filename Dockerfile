@@ -30,4 +30,4 @@ RUN wget "https://github.com/yairm210/Unciv/releases/download/$UNCIV_TAG/linuxFi
 
 RUN chmod +x Unciv.sh
 
-USER 1001
+USER 1000
