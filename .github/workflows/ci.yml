@@ -22,13 +22,26 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+#      - name: Build and push
+#        id: docker_build_push
+#        uses: docker/build-push-action@v2
+#        with:
+#          build-args: |
+#            UBUNTU_VERSION=20.04
+#            UNCIV_TAG=4.6.3-patch1
+#          push: true
+#          tags: |
+#            qyvlik/yairm210-unciv:4.6.3
+#            qyvlik/yairm210-unciv:4.6.3-focal
+#            qyvlik/yairm210-unciv:latest
+
       - name: Build and push
         id: docker_build_push
         uses: docker/build-push-action@v2
         with:
           build-args: |
+            UBUNTU_VERSION=latest
             UNCIV_TAG=4.6.3-patch1
           push: true
           tags: |
-            qyvlik/yairm210-unciv:4.6.3-patch1
-            qyvlik/yairm210-unciv:latest
+            qyvlik/yairm210-unciv:4.6.3-jammy
