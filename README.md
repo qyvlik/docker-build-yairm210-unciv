@@ -1,10 +1,16 @@
 # docker-build-yairm210-unciv
 
-Auto build https://github.com/yairm210/Unciv, See https://hub.docker.com/r/qyvlik/yairm210-unciv
+Docker build https://github.com/yairm210/Unciv, see https://hub.docker.com/r/qyvlik/yairm210-unciv
+
+[Unciv](https://github.com/yairm210/Unciv) is an open-source Android/Desktop remake of Civ V, run on jre and using OpenGL.
+
+And now you can run [Unciv](https://github.com/yairm210/Unciv) in container !
+
+![](docs/unciv-game-001.jpg)
 
 # Ubuntu 20.04
 
-Host System is Ubuntu 20.04(Ubuntu focal)
+Host system is Ubuntu 20.04(Ubuntu focal)
 
 - docker run
 
@@ -40,7 +46,9 @@ Open http://localhost:6901/vnc.html?password=headless
 
 # Ubuntu 22.04
 
-Host System is Ubuntu 22.04(Ubuntu jammy)
+Host system is Ubuntu 22.04(Ubuntu jammy)
+
+- docker run
 
 ```bash
 docker run \
@@ -72,7 +80,7 @@ services:
 
 Open http://localhost:6901/vnc.html?password=headless
 
-# change vnc geometry
+# VNC environment
 
 See https://github.com/accetto/headless-drawing-g3/blob/v22.12.1/docker/Dockerfile.xfce.drawing#L145-L152
 
@@ -81,3 +89,7 @@ See https://github.com/accetto/headless-drawing-g3/blob/v22.12.1/docker/Dockerfi
 - `VNC_PW`: password
 - `VNC_RESOLUTION`: 1360x768
 
+# Ref
+
+1. https://github.com/yairm210/Unciv
+2. https://github.com/accetto/headless-drawing-g3
