@@ -28,7 +28,7 @@ jobs:
         with:
           build-args: |
             UBUNTU_VERSION=20.04
-            UNCIV_TAG=4.6.9
+            UNCIV_TAG=4.6.9-patch2
           push: true
           tags: |
             qyvlik/yairm210-unciv:4.6.9
@@ -41,7 +41,7 @@ jobs:
         with:
           build-args: |
             UBUNTU_VERSION=latest
-            UNCIV_TAG=4.6.9
+            UNCIV_TAG=4.6.9-patch2
           push: true
           tags: |
             qyvlik/yairm210-unciv:4.6.9-jammy
