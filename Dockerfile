@@ -12,7 +12,7 @@ RUN apt update &&\
 
 WORKDIR /home/headless/Desktop/
 
-ARG UNCIV_TAG=4.6.13
+ARG UNCIV_TAG=4.6.14-patch1
 
 RUN wget "https://github.com/yairm210/Unciv/releases/download/$UNCIV_TAG/Unciv-Linux64.zip" && \
     unzip -q Unciv-Linux64.zip -d Unciv-Linux64 && \
