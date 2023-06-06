@@ -28,11 +28,11 @@ jobs:
         with:
           build-args: |
             UBUNTU_VERSION=20.04
-            UNCIV_TAG=4.6.17
+            UNCIV_TAG=4.6.18-patch1
           push: true
           tags: |
-            qyvlik/yairm210-unciv:4.6.17
-            qyvlik/yairm210-unciv:4.6.17-focal
+            qyvlik/yairm210-unciv:4.6.18
+            qyvlik/yairm210-unciv:4.6.18-focal
             qyvlik/yairm210-unciv:latest
 
       - name: Build and push jammy
@@ -41,7 +41,7 @@ jobs:
         with:
           build-args: |
             UBUNTU_VERSION=latest
-            UNCIV_TAG=4.6.17
+            UNCIV_TAG=4.6.18-patch1
           push: true
           tags: |
-            qyvlik/yairm210-unciv:4.6.17-jammy
+            qyvlik/yairm210-unciv:4.6.18-jammy
