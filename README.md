@@ -21,7 +21,7 @@ docker run \
   -p "6901:6901" \
   -p "5901:5901" \
   -v "/home/ubuntu/docker-volumes/unciv-docker/unciv:/home/headless/.local/share/Unciv" \
-  qyvlik/yairm210-unciv:4.7.17 \
+  qyvlik/yairm210-unciv:4.7.18 \
   /home/headless/Desktop/Unciv.sh
 ```
 
@@ -32,7 +32,7 @@ version: '2.0'
 
 services:
   unciv:
-    image: qyvlik/yairm210-unciv:4.7.17
+    image: qyvlik/yairm210-unciv:4.7.18
     command: /home/headless/Desktop/Unciv.sh
     volumes:
       - "./tmp/your-game-data:/home/headless/.local/share/Unciv"
@@ -57,7 +57,7 @@ docker run \
   -p "6901:6901" \
   -p "5901:5901" \
   -v "/home/ubuntu/docker-volumes/unciv-docker/unciv:/home/headless/.local/share/Unciv" \
-  qyvlik/yairm210-unciv:4.7.17-jammy \
+  qyvlik/yairm210-unciv:4.7.18-jammy \
   /home/headless/Desktop/Unciv.sh
 ```
 
@@ -68,7 +68,7 @@ version: '2.0'
 
 services:
   unciv:
-    image: qyvlik/yairm210-unciv:4.7.17-jammy
+    image: qyvlik/yairm210-unciv:4.7.18-jammy
     command: /home/headless/Desktop/Unciv.sh
     volumes:
       - "./tmp/your-game-data:/home/headless/.local/share/Unciv"
