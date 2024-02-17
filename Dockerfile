@@ -1,6 +1,4 @@
-
-ARG UBUNTU_VERSION=20.04
-FROM accetto/ubuntu-vnc-xfce-g3:$UBUNTU_VERSION
+FROM accetto/ubuntu-vnc-xfce-opengl-g3
 
 USER root
 

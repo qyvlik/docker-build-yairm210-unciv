@@ -8,42 +8,6 @@ And now you can run [Unciv](https://github.com/yairm210/Unciv) in container !
 
 ![](docs/unciv-game-001.jpg)
 
-# Ubuntu 20.04
-
-Host system is Ubuntu 20.04(Ubuntu focal)
-
-- docker run
-
-```bash
-docker run \
-  --rm \
-  -it \
-  -p "6901:6901" \
-  -p "5901:5901" \
-  -v "/home/ubuntu/docker-volumes/unciv-docker/unciv:/home/headless/.local/share/Unciv" \
-  qyvlik/yairm210-unciv:4.10.9 \
-  /home/headless/Desktop/Unciv.sh
-```
-
-- docker-compose
-
-```yaml
-version: '2.0'
-
-services:
-  unciv:
-    image: qyvlik/yairm210-unciv:4.10.9
-    command: /home/headless/Desktop/Unciv.sh
-    volumes:
-      - "./tmp/your-game-data:/home/headless/.local/share/Unciv"
-    environment:
-      - VNC_RESOLUTION=1360x768
-    ports:
-      - "6901:6901"
-```
-
-Open http://localhost:6901/vnc.html?password=headless
-
 # Ubuntu 22.04
 
 Host system is Ubuntu 22.04(Ubuntu jammy)

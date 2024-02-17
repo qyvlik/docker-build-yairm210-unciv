@@ -22,19 +22,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push focal
-        id: docker_build_push_focal
-        uses: docker/build-push-action@v2
-        with:
-          build-args: |
-            UBUNTU_VERSION=20.04
-            UNCIV_TAG=4.10.9
-          push: true
-          tags: |
-            qyvlik/yairm210-unciv:4.10.9
-            qyvlik/yairm210-unciv:4.10.9-focal
-            qyvlik/yairm210-unciv:latest
-
       - name: Build and push jammy
         id: docker_build_push_jammy
         uses: docker/build-push-action@v2
