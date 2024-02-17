@@ -6,6 +6,7 @@ RUN apt update &&\
     apt install -y language-pack-zh* &&\
     apt install -y fonts-arphic-ukai fonts-arphic-uming fonts-ipafont-mincho fonts-ipafont-gothic fonts-unfonts-core &&\
     apt install -y wget unzip &&\
+    apt install -y openjdk-11-jdk && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /home/headless/Desktop/
