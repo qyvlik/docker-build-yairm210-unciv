@@ -1,8 +1,15 @@
 FROM ghcr.io/linuxserver/baseimage-kasmvnc:ubuntujammy
 
-RUN sed -i "s/security.ubuntu.com/mirrors.aliyun.com/g" /etc/apt/sources.list && \
-    sed -i "s/archive.ubuntu.com/mirrors.aliyun.com/g" /etc/apt/sources.list && \
-    apt-get update && \
+# If you want to change APT_REPOSITORY, set --build-arg=APT_REPOSITORY=apt.example.com during docker build
+# APT_REPOSITORY=mirrors.aliyun.com
+ARG APT_REPOSITORY
+
+RUN if [ ! -z $APT_REPOSITORY ]; then \
+        sed -i "s/security.ubuntu.com/$APT_REPOSITORY/g" /etc/apt/sources.list && \
+        sed -i "s/archive.ubuntu.com/$APT_REPOSITORY/g" /etc/apt/sources.list; \
+    fi
+
+RUN apt-get update && \
     apt-get install -y \
         curl \
         openjdk-11-jdk \
