@@ -1,34 +1,20 @@
-FROM accetto/ubuntu-vnc-xfce-opengl-g3
+FROM ghcr.io/linuxserver/baseimage-kasmvnc:ubuntujammy
 
-USER root
+RUN sed -i "s/security.ubuntu.com/mirrors.aliyun.com/g" /etc/apt/sources.list && \
+    sed -i "s/archive.ubuntu.com/mirrors.aliyun.com/g" /etc/apt/sources.list && \
+    apt-get update && \
+    apt-get install -y \
+        curl \
+        openjdk-11-jdk \
+        language-pack-zh-hans \
+        fonts-droid-fallback ttf-wqy-zenhei ttf-wqy-microhei fonts-arphic-ukai fonts-arphic-uming && \
+    update-locale LANG=zh_CN.UTF-8
 
-RUN apt update &&\
-    apt install -y language-pack-zh* &&\
-    apt install -y fonts-arphic-ukai fonts-arphic-uming fonts-ipafont-mincho fonts-ipafont-gothic fonts-unfonts-core &&\
-    apt install -y wget unzip &&\
-    apt install -y openjdk-11-jdk && \
-    rm -rf /var/lib/apt/lists/*
+ARG UNCIV_TAG=4.11.0
 
-WORKDIR /home/headless/Desktop/
-
-ARG UNCIV_TAG=4.10.9
-
-RUN wget "https://github.com/yairm210/Unciv/releases/download/$UNCIV_TAG/Unciv-Linux64.zip" && \
-    unzip -q Unciv-Linux64.zip -d Unciv-Linux64 && \
-    chown 1001:1001 -R Unciv-Linux64/* && \
-    cp -rf Unciv-Linux64/jre/* /usr/ && \
-    mkdir -p /usr/share/Unciv/ && \
-    cp -rf Unciv-Linux64/Unciv.jar /usr/share/Unciv/Unciv.jar && \
-    rm -rf Unciv-Linux64 && \
-    rm -rf Unciv-Linux64.zip
-
-RUN wget "https://github.com/yairm210/Unciv/releases/download/$UNCIV_TAG/linuxFilesForJar.zip" && \
-    unzip -q linuxFilesForJar.zip -d linuxFilesForJar && \
-    chown 1001:1001 -R linuxFilesForJar/* && \
-    cp -rf linuxFilesForJar/* /home/headless/Desktop/ && \
-    rm -rf linuxFilesForJar && \
-    rm -rf linuxFilesForJar.zip
-
-RUN chmod +x Unciv.sh
-
-USER 1000
+RUN mkdir -p /usr/share/Unciv/ && \
+    curl \
+        "https://github.com/yairm210/Unciv/releases/download/$UNCIV_TAG/Unciv.jar" \
+        -L \
+        -o /usr/share/Unciv/Unciv.jar && \
+    echo "java -jar /usr/share/Unciv/Unciv.jar" > /defaults/autostart

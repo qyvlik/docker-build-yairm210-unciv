@@ -6,54 +6,40 @@ Docker build https://github.com/yairm210/Unciv, see https://hub.docker.com/r/qyv
 
 And now you can run [Unciv](https://github.com/yairm210/Unciv) in container !
 
-![](docs/unciv-game-001.jpg)
-
 # Ubuntu 22.04
 
 Host system is Ubuntu 22.04(Ubuntu jammy)
 
-- docker run
-
-```bash
-docker run \
-  --rm \
-  -it \
-  -p "6901:6901" \
-  -p "5901:5901" \
-  -v "/home/ubuntu/docker-volumes/unciv-docker/unciv:/home/headless/.local/share/Unciv" \
-  qyvlik/yairm210-unciv:4.10.9-jammy \
-  /home/headless/Desktop/Unciv.sh
-```
-
-- docker-compose
-
 ```yaml
-version: '2.0'
+version: '3'
 
 services:
   unciv:
-    image: qyvlik/yairm210-unciv:4.10.9-jammy
-    command: /home/headless/Desktop/Unciv.sh
-    volumes:
-      - "./tmp/your-game-data:/home/headless/.local/share/Unciv"
+    image: qyvlik/yairm210-unciv:4.11.0-jammy
+    security_opt:
+      - seccomp:unconfined # https://gist.github.com/nathabonfim59/b088db8752673e1e7acace8806390242 
     environment:
-      - VNC_RESOLUTION=1360x768
+      - CUSTOM_USER=admin
+      - PASSWORD=admin
     ports:
-      - "6901:6901"
+      - "3000:3000"
+    volumes:
+      - "$YOUR_GAME_DATA:/config"
 ```
 
-Open http://localhost:6901/vnc.html?password=headless
+```bash
+docker compose up -d
+```
 
-# VNC environment
+Open http://admin:admin@127.0.0.1:3000. **Enable Sound** as follows:
 
-See https://github.com/accetto/headless-drawing-g3/blob/v22.12.1/docker/Dockerfile.xfce.drawing#L145-L152
+![](docs/unciv-game-002.png)
 
-- `VNC_COL_DEPTH`
-- `VNC_PORT`
-- `VNC_PW`: password
-- `VNC_RESOLUTION`: 1360x768
+# environment
+
+[linuxserver/docker-baseimage-kasmvnc](https://github.com/linuxserver/docker-baseimage-kasmvnc/tree/master?tab=readme-ov-file#options)
 
 # Ref
 
 1. https://github.com/yairm210/Unciv
-2. https://github.com/accetto/headless-drawing-g3
+2. https://github.com/linuxserver/docker-baseimage-kasmvnc

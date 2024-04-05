@@ -3,7 +3,7 @@ name: ci
 on:
   push:
     branches:
-      - 'main'
+      - 'kasmvnc'
 
 jobs:
   docker:
@@ -27,8 +27,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           build-args: |
-            UBUNTU_VERSION=latest
-            UNCIV_TAG=4.10.9
+            UNCIV_TAG=4.11.0
           push: true
           tags: |
-            qyvlik/yairm210-unciv:4.10.9-jammy
+            qyvlik/yairm210-unciv:4.11.0-jammy
