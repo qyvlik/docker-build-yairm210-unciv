@@ -17,7 +17,7 @@ RUN apt-get update && \
         fonts-droid-fallback ttf-wqy-zenhei ttf-wqy-microhei fonts-arphic-ukai fonts-arphic-uming && \
     update-locale LANG=zh_CN.UTF-8
 
-ARG UNCIV_TAG=4.11.0
+ARG UNCIV_TAG=4.11.1
 
 RUN mkdir -p /usr/share/Unciv/ && \
     curl \
