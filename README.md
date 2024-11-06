@@ -15,7 +15,7 @@ version: '3'
 
 services:
   unciv:
-    image: qyvlik/yairm210-unciv:4.11.1-jammy
+    image: qyvlik/yairm210-unciv:4.14.3-jammy
     security_opt:
       - seccomp:unconfined # https://gist.github.com/nathabonfim59/b088db8752673e1e7acace8806390242 
     environment:
